@@ -1,0 +1,9 @@
+name: Deploy Stage
+
+on:
+  workflow_call:
+
+jobs:
+  ssh-deploy:
+    uses: ../jobs/ssh-deploy.yml
+    secrets: inherit

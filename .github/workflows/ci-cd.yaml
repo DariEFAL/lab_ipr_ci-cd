@@ -1,0 +1,31 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+
+env:
+  CI_REGISTRY: 'your-registry.example.com'
+  RUFF_VERSION: 'latest'
+  DOCKER_IMAGE_NAME: 'ruff-template/ruff'
+
+jobs:
+  # Include stages
+  lint:
+    uses: ./.github/workflows/stages/lint.yml
+    secrets: inherit
+
+  test:
+    uses: ./.github/workflows/stages/test.yml
+    secrets: inherit
+
+  build:
+    uses: ./.github/workflows/stages/build.yml
+    secrets: inherit
+
+  deploy:
+    uses: ./.github/workflows/stages/deploy.yml
+    secrets: inherit

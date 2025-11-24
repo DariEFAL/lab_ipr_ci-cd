@@ -1,0 +1,9 @@
+name: Lint Stage
+
+on:
+  workflow_call:
+
+jobs:
+  ruff-lint:
+    uses: ../jobs/lint-ruff.yml
+    secrets: inherit

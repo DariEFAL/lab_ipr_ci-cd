@@ -1,0 +1,9 @@
+name: Build Stage
+
+on:
+  workflow_call:
+
+jobs:
+  docker-build:
+    uses: ../jobs/docker-build.yml
+    secrets: inherit

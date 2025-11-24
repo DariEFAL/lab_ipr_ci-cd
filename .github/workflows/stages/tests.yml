@@ -1,0 +1,9 @@
+name: Test Stage
+
+on:
+  workflow_call:
+
+jobs:
+  unit-tests:
+    uses: ../jobs/unit-tests.yml
+    secrets: inherit
